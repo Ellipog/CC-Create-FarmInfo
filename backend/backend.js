@@ -16,6 +16,7 @@ const farmOutputData = new mongoose.Schema({
   running: Boolean,
   total: String,
   image: String,
+  inStorage: String,
   createdAt: { type: Date, expires: 60 * 60 * 24 },
 });
 
@@ -45,6 +46,7 @@ app.post("/data", (req, res) => {
     running: data.running,
     total: data.total,
     image: data.image,
+    inStorage: data.inStorage,
   });
 
   newFarmInfo.save((err, savedData) => {
