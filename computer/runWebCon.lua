@@ -16,7 +16,7 @@ while true do
     running = running,
     total = string.gsub(target.getLine(2), "[%a%s]", ""),
     inStorage = string.gsub(target.getLine(3), "[%a%s]", ""),
-    image = "oak_log.png"
+    image = "oak_logpng"
   }
 
   local body = textutils.serializeJSON(data)

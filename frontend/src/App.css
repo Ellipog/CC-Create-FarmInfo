@@ -1,38 +1,83 @@
-.App {
-  text-align: center;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(222, 222, 222);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.bodyBox {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+}
+
+.sideBar {
+  display: flex;
   align-items: center;
+  flex-direction: column;
+  background-color: #2a2b2c;
+  height: 100%;
+  width: 5%;
+}
+
+.mainInfo {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #37393a;
+  height: 100%;
+  width: 95%;
+}
+
+.playerIcon {
+  background-color: rgb(131, 131, 131);
+  border-radius: 100%;
+  padding: 10%;
+  width: 60%;
+  margin: 10% 0% 10% 0%;
+  transition: ease 0.25s;
+}
+
+.playerIcon:hover {
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  padding: 5%;
+  width: 70%;
+}
+
+.activeOwner {
+  background-color: rgb(255, 255, 255);
+  padding: 7%;
+  width: 66%;
+}
+
+.farmInfoBox {
+  display: flex;
+  flex-direction: row;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 70%;
+  height: 20%;
+  background-color: rgb(88, 88, 88);
+  border-radius: 1vw;
+  margin: 2%;
 }
 
-.App-link {
-  color: #61dafb;
+.farmImage {
+  background-color: rgb(184, 184, 184);
+  border-radius: 100%;
+  height: 90%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.farmImageBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 16%;
+}
+
+.farmDataBox {
+  width: 84%;
 }
