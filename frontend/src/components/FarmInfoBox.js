@@ -10,7 +10,7 @@ function FarmInfoBox(props) {
 
   const data = props.data;
   const image = itemImages[data.image];
-
+  console.log(data)
   return (
     <div className="farmInfoBox">
       <div className="farmImageBox">

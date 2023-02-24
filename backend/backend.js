@@ -17,7 +17,7 @@ const farmOutputData = new mongoose.Schema({
   total: String,
   image: String,
   inStorage: String,
-  time: Date,
+  time: Number,
   createdAt: { type: Date, expires: 60 * 60 * 24 },
 });
 
