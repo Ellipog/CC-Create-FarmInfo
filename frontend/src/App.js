@@ -25,6 +25,7 @@ function App() {
     if (farmOwner !== "") {
       fetchFarmInfo();
     }
+    // eslint-disable-next-line
   }, [farmOwner]);
 
   return (

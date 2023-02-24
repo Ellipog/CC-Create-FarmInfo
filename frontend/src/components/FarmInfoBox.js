@@ -18,7 +18,10 @@ function FarmInfoBox(props) {
       </div>
       <p className={`farmStatus ${data.running ? "farmStatusActive" : ""}`} />
       <div className="farmDataBox">
-        <p className="itemName">{data.item}</p>
+        <div className="farmHeader">
+          <p>{data.item}</p>
+          <p>23:30 <span>25/02/2023</span></p>
+        </div>
         <p className="farmData">Total output: {data.total}</p>
         <p className="farmData">In storage: {data.inStorage}</p>
       </div>
