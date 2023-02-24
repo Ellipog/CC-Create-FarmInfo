@@ -10,18 +10,17 @@ function FarmInfoBox(props) {
 
   const data = props.data;
   const image = itemImages[data.image];
-  const running = data.running.toString();
 
   return (
     <div className="farmInfoBox">
       <div className="farmImageBox">
         <img className="farmImage" src={image} alt={data.item} />
       </div>
+      <p className={`farmStatus ${data.running ? "farmStatusActive" : ""}`} />
       <div className="farmDataBox">
         <p className="itemName">{data.item}</p>
         <p className="farmData">Total output: {data.total}</p>
         <p className="farmData">In storage: {data.inStorage}</p>
-        <p className="farmData">{running}</p>
       </div>
     </div>
   );
