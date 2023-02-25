@@ -1,4 +1,4 @@
-import "../App.css";
+import styles from "../css/FarmInfoBox.module.css";
 import wheatImage from "../images/wheat.png";
 import oakLogImage from "../images/oak_sapling.png";
 
@@ -7,9 +7,6 @@ function FarmInfoBox(props) {
     wheatpng: wheatImage,
     oak_logpng: oakLogImage,
   };
-
-
-
 
   const data = props.data;
   const image = itemImages[data.image];
@@ -24,18 +21,16 @@ function FarmInfoBox(props) {
   const mins = new Date(Date.now() - data.time).getMinutes()
 
   return (
-    <div className="farmInfoBox">
-      <div className="farmImageBox">
-        <img className="farmImage" src={image} alt={data.item} />
+    <div className={styles.container}>
+      <div className={styles.image}>
+        <img src={image} alt={data.item} />
       </div>
-      <p className={`farmStatus ${data.running ? "farmStatusActive" : ""}`} />
-      <div className="farmDataBox">
-        <div className="farmHeader">
-          <p>{data.item}</p>
-          <p>Updated: {updateHours}:{updateMin} - {mins}m ago</p>
-        </div>
-        <p className="farmData">Total output: {data.total}</p>
-        <p className="farmData">In storage: {data.inStorage}</p>
+      <p className={`${styles.status} ${data.running ? styles.active : styles.inactive}`} />
+      <div className={styles.content}>
+        <p className={styles.header}>{data.item}</p>
+        <p className={styles.data}>Updated: <span>{updateHours}:{updateMin} - {mins}m ago</span></p>
+        <p className={styles.data}>Total output: <span>{data.total}</span></p>
+        <p className={styles.data}>In storage: <span>{data.inStorage}</span></p>
       </div >
     </div >
   );

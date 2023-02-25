@@ -1,4 +1,4 @@
-import "./App.css";
+import styles from "./css/App.module.css";
 import React, { useState, useEffect } from "react";
 import FarmInfoBox from "./components/FarmInfoBox";
 
@@ -29,24 +29,27 @@ function App() {
 
 
   return (
-    <div className="bodyBox">
-      <div className="sideBar">
-        <img className={`playerIcon ${farmOwner === "Elliot" ? "activeOwner" : ""}`} alt="Player Head" src="https://cravatar.eu/helmhead/ellipog" onClick={() => setFarmOwner("Elliot")} />
-        <img className={`playerIcon ${farmOwner === "Trygve" ? "activeOwner" : ""}`} alt="Player Head" src="https://cravatar.eu/helmhead/trygvedev" onClick={() => setFarmOwner("Trygve")} />
-        <img className={`playerIcon ${farmOwner === "Herman" ? "activeOwner" : ""}`} alt="Player Head" src="https://cravatar.eu/helmhead/yepcoc" onClick={() => setFarmOwner("Herman")} />
+    <div className={styles.container}>
+      <div className={styles.navbar}>
+        <img className={`${styles.playerIcon} ${farmOwner === "Elliot" ? styles.activeOwner : ""}`} alt="Player Head" src="https://cravatar.eu/helmhead/ellipog" onClick={() => setFarmOwner("Elliot")} />
+        <img className={`${styles.playerIcon} ${farmOwner === "Trygve" ? styles.activeOwner : ""}`} alt="Player Head" src="https://cravatar.eu/helmhead/trygvedev" onClick={() => setFarmOwner("Trygve")} />
+        <img className={`${styles.playerIcon} ${farmOwner === "Herman" ? styles.activeOwner : ""}`} alt="Player Head" src="https://cravatar.eu/helmhead/yepcoc" onClick={() => setFarmOwner("Herman")} />
       </div>
-      <div className="mainInfo">
+      <div className={styles.content}>
         <h1>{farmOwner}'s farms!</h1>
-        {Object.values(
-          farmInfo.reduce((acc, curr) => {
-            if (curr.owner === farmOwner && (!acc[curr.item] || curr.time > acc[curr.item].time)) {
-              acc[curr.item] = curr;
-            }
-            return acc;
-          }, {})
-        ).map((data, i) => (
-          <FarmInfoBox key={i} data={data} />
-        ))}
+        <div className={styles.farmsList}>
+          {Object.values(
+            farmInfo.reduce((acc, curr) => {
+              if (curr.owner === farmOwner && (!acc[curr.item] || curr.time > acc[curr.item].time)) {
+                acc[curr.item] = curr;
+              }
+              return acc;
+            }, {})
+          ).map((data, i) => (
+            <FarmInfoBox key={i} data={data} />
+          ))}
+        </div>
+
       </div>
     </div>
   );
