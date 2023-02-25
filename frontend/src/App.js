@@ -24,10 +24,6 @@ function App() {
   // eslint-disable-next-line
   useEffect(() => startFetching(), [farmOwner]);
 
-
-
-
-
   return (
     <div className={styles.container}>
       <div className={styles.navbar}>
