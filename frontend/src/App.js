@@ -6,7 +6,7 @@ function App() {
   const [farmInfo, setFarmInfo] = useState([]);
   const [farmOwner, setFarmOwner] = useState("Elliot");
 
-  async function fetchFarmInfo() {
+  function startFetching() {
     fetch(`http://81.167.168.153:25584/fetchFarmInfo?${farmOwner}`, {
       method: "GET",
       mode: "cors",
@@ -20,13 +20,13 @@ function App() {
         setFarmInfo(data);
       });
   }
+  setTimeout(() => startFetching(), 60000);
+  // eslint-disable-next-line
+  useEffect(() => startFetching(), [farmOwner]);
 
-  useEffect(() => {
-    if (farmOwner !== "") {
-      fetchFarmInfo();
-    }
-    // eslint-disable-next-line
-  }, [farmOwner]);
+
+
+
 
   return (
     <div className="bodyBox">
@@ -39,7 +39,7 @@ function App() {
         <h1>{farmOwner}'s farms!</h1>
         {Object.values(
           farmInfo.reduce((acc, curr) => {
-            if (curr.owner === farmOwner && (!acc[curr.item] || curr.total > acc[curr.item].total)) {
+            if (curr.owner === farmOwner && (!acc[curr.item] || curr.time > acc[curr.item].time)) {
               acc[curr.item] = curr;
             }
             return acc;

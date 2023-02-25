@@ -8,9 +8,21 @@ function FarmInfoBox(props) {
     oak_logpng: oakLogImage,
   };
 
+
+
+
   const data = props.data;
   const image = itemImages[data.image];
   console.log(data)
+
+  const updateDate = new Date(data.time)
+  let updateHours = updateDate.getHours();
+  updateHours = ("0" + updateHours).slice(-2);
+  let updateMin = updateDate.getMinutes();
+  updateMin = ("0" + updateMin).slice(-2);
+
+  const mins = new Date(Date.now() - data.time).getMinutes()
+
   return (
     <div className="farmInfoBox">
       <div className="farmImageBox">
@@ -20,12 +32,12 @@ function FarmInfoBox(props) {
       <div className="farmDataBox">
         <div className="farmHeader">
           <p>{data.item}</p>
-          <p>23:30 <span>25/02/2023</span></p>
+          <p>Updated: {updateHours}:{updateMin} - {mins}m ago</p>
         </div>
         <p className="farmData">Total output: {data.total}</p>
         <p className="farmData">In storage: {data.inStorage}</p>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }
 
