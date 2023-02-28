@@ -4,6 +4,7 @@ body {
   padding: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: rgb(222, 222, 222);
+  background-color: #37393a;
 }
 
 .container {
@@ -14,6 +15,7 @@ body {
 }
 
 .navbar {
+  position: fixed;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -26,13 +28,16 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: #37393a;
-  height: 100%;
   width: 100%;
 }
 
+.box {
+  display: block;
+  width: 50vw;
+}
+
 .farmsList {
-  width: 60%;
+  width: 100%;
   overflow: hidden;
   overflow-y: scroll;
   display: flex;
@@ -105,5 +110,10 @@ body {
     flex-direction: column;
     flex-wrap: nowrap;
     gap: 1em;
+  }
+
+  .box {
+    display: block;
+    width: 100vw;
   }
 }

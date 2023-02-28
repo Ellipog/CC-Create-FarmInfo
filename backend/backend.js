@@ -18,7 +18,7 @@ const farmOutputData = new mongoose.Schema({
   image: String,
   inStorage: String,
   time: Number,
-  createdAt: { type: Date, expires: 60 * 60 * 24 },
+  createdAt: { type: Date, expires: 60 * 60 * 12 },
 });
 
 const FarmInfo = mongoose.model("FarmInfo", farmOutputData);
@@ -63,12 +63,7 @@ app.post("/data", (req, res) => {
 });
 
 app.get("/fetchFarmInfo", (req, res) => {
-  let query = {};
-  if (req.query.item) {
-    query = { item: req.query.item, farmOwner: req.query.farmOwner };
-  } else {
-    query = { farmOwner: req.query.farmOwner };
-  }
+  let query = { farmOwner: req.query.farmOwner };
 
   FarmInfo.find(query).then((data) => {
     res.json(data);
